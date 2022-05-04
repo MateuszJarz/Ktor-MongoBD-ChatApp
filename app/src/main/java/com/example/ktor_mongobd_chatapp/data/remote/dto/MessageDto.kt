@@ -1,7 +1,9 @@
 package com.example.ktor_mongobd_chatapp.data.remote.dto
 
+import com.example.ktor_mongobd_chatapp.domain.model.Message
 import kotlinx.serialization.Serializable
-import java.sql.Timestamp
+import java.text.DateFormat
+import java.util.*
 
 @Serializable
 data class MessageDto(
@@ -9,4 +11,16 @@ data class MessageDto(
     val timestamp: Long,
     val username: String,
     val id: String
-)
+) {
+    fun toMessage(): Message {
+        val date = Date(timestamp)
+        val formattedTime = DateFormat
+            .getTimeInstance(DateFormat.DEFAULT)
+            .format(date)
+        return Message(
+            text = text,
+            formattedTime = formattedTime,
+            username = username
+        )
+    }
+}
