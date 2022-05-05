@@ -15,7 +15,7 @@ data class MessageDto(
     fun toMessage(): Message {
         val date = Date(timestamp)
         val formattedTime = DateFormat
-            .getTimeInstance(DateFormat.DEFAULT)
+            .getDateInstance(DateFormat.DEFAULT)
             .format(date)
         return Message(
             text = text,

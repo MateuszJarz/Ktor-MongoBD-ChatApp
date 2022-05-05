@@ -41,7 +41,7 @@ fun UsernameScreen(
                 placeholder = {
                     Text(text = "Enter a username...")
                 },
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(8.dp))
             Button(onClick = viewModel::onJoinClick) {
